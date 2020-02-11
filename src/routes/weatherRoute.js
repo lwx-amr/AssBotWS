@@ -1,8 +1,8 @@
-const { currenTemp } = require('../controllers/weatherController');
+const { currentTemp } = require('../controllers/weatherController');
 
 function weatherRoute(app){
     app.route('/weather/currenttemp')
-        .get(currenTemp)
+        .get(currentTemp)
 }
 
 module.exports = weatherRoute;
