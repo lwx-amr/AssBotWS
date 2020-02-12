@@ -1,5 +1,4 @@
 const https = require('https');
-const request = require("request");
 
 function latestMovies(req, res, err) {
     let apiKey = '6067e85bb930d633b5429eb320066130';

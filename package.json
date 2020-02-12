@@ -22,6 +22,7 @@
   "homepage": "https://github.com/lwx-amr/AssBotWS#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "newsapi": "^2.4.0",
     "request": "^2.88.0"
   }
 }
