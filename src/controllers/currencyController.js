@@ -7,9 +7,9 @@ function convertCurrency(req, res, err) {
         amount = req.query.amount,
         query = fromCurrency + '_' + toCurrency;
   
-    var url = 'https://free.currconv.com/api/v7/convert?q='
-              + query + '&compact=ultra&apiKey=' + apiKey;
-  
+    var url = 'https://free.currconv.com/api/v7/convert?q='+ query + '&compact=ultra&apiKey=' + apiKey;
+    //https://free.currconv.com/api/v7/convert?q=usd_egp&compact=ultra&apiKey=aaea9a723edcdc47ef4b
+
     https.get(url, function(response){
         var body = '';
   
@@ -20,11 +20,11 @@ function convertCurrency(req, res, err) {
         response.on('end', function(){
             try {
               var jsonObj = JSON.parse(body);
-  
               var val = jsonObj[query];
+              // Val = 15.75
               if (val) {
                 var total = val * amount;
-                res.json(Math.round(total * 100) / 100);
+                res.json(total);
               } else {
                 var err = new Error("Value not found for " + query);
                 console.log(err);

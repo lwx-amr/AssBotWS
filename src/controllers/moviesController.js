@@ -3,8 +3,7 @@ const https = require('https');
 function latestMovies(req, res, err) {
     let apiKey = '6067e85bb930d633b5429eb320066130';
     //https://api.themoviedb.org/3/trending/all/day?api_key=<<api_key>>&language=en-US
-    var url = 'https://api.themoviedb.org/3/trending/all/day?api_key='
-              + apiKey;
+    var url = 'https://api.themoviedb.org/3/trending/all/day?api_key='+ apiKey;
   
     https.get(url, function(response){
         var body = '';
@@ -14,7 +13,7 @@ function latestMovies(req, res, err) {
         response.on('end', function(){
             try {
                 var jsonObj = JSON.parse(body);
-                var output = [{
+                /*var output = [{
                         title: jsonObj.results[0]['title'],
                         vote_count: jsonObj.results[0]['vote_count'],
                         date: jsonObj.results[0]['release_date'],
@@ -24,8 +23,8 @@ function latestMovies(req, res, err) {
                         vote_count: jsonObj['results'][1]['vote_count'],
                         date: jsonObj['results'][1]['release_date'],
                         language: jsonObj['results'][1]['original_language'],
-                    }];
-                res.json(output);
+                    }];*/
+                res.json(jsonObj);
             } catch(e) {
                 console.log("Parse error: ", e);
                 res.json(e);

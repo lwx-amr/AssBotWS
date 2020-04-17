@@ -14,13 +14,13 @@ function currentTemp(req,res, err) {
             try {
               var jsonObj = JSON.parse(body);
               if (jsonObj) {
-                var output = {
+                /*var output = {
                   lat: jsonObj['latitude'],
                   long: jsonObj['longitude'],
                   zone: jsonObj['timezone'],
                   temp: jsonObj['currently']['temperature']
-                };
-                res.json(output);
+                };*/
+                res.json(jsonObj);
               }
             } catch(e) {
               console.log("Parse error: ", e);
